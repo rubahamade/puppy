@@ -1,6 +1,6 @@
 import { useParams, Link } from "react-router-dom"
 
-const Singlepuppy = ({puppies}) => {
+const Singlepuppy = ({puppies, deletepuppy}) => {
     const params = useParams()
     const id = params.id*1
 
@@ -22,10 +22,13 @@ const Singlepuppy = ({puppies}) => {
             <p>Team ID: {puppy.id}</p>
             <img src={puppy.imageUrl}/>
             <div className="link">
-            <Link to='/puppies'>
+            <Link to='/'>
                 Back to all puppies
             </Link>
+
+            <button onClick={() => {deletepuppy(puppy)}}>X</button>
             </div>
+            
             
         </div>
     )
